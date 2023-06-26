@@ -2,7 +2,7 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
     return (
-        <h1>Footer</h1>
+        <p className={styles.p}>Copyright @ PizzeriaApp 2022</p>
     );
 }
 
