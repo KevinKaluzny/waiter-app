@@ -19,7 +19,7 @@ const Home = () => {
                                 <h2>Table {table.id}</h2>
                                 <p><b>Status:</b> {table.status}</p>
                             </div>
-                            <button className="btn btn-primary">Show more</button>
+                            <button className="btn btn-primary"><a href={"http://localhost:3000/table/" + table.id}>Show more</a></button>
                         </li>
                     )}
                 </ul>

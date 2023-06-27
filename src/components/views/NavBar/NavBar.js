@@ -10,9 +10,9 @@ const NavBar = () => {
         <Navbar bg="primary" expand="lg" className="bg-body-tertiary rounded my-3">
             <Container>
                 <Navbar.Brand className="text-light" href="#home">React-Bootstrap</Navbar.Brand>
-                <Nav>
+                <NavLink>
                     <Nav.Link className="text-light" as={NavLink} to="/">Home</Nav.Link>
-                </Nav>
+                </NavLink>
             </Container>
         </Navbar>
     );
