@@ -1,31 +1,41 @@
+import { useParams } from 'react-router';
 import styles from './Table.module.scss';
 import './Table.scss';
+import { useSelector } from 'react-redux';
+import { getTableById } from '../../../redux/store';
+import { useEffect } from 'react';
+import { updateTables } from '../../../redux/store';
+import { useDispatch } from 'react-redux';
 
 const Table = () => {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const table = useSelector(state => getTableById(state, id));
+
     return (
         <div>
             <main>
-                <h1>Table 1</h1>
+                <h1>Table {table[0].id}</h1>
 
                 <form>
-                    <div class="input-group mb-3">
-                        <label for="status"><b>Status:</b></label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="busy">Busy</option>
+                    <div className="input-group mb-3">
+                        <label htmlFor="status"><b>Status:</b></label>
+                        <select defaultValue={table[0].status.toLowerCase()} className="form-select" aria-label="Default select example">
+                            <option value="busy">Busy</option>
                             <option value="reserved">Reserved</option>
                             <option value="free">Free</option>
                             <option value="cleaning">Cleaning</option>
                         </select>
                     </div>
                     <div>
-                        <label for="people" class="form-label"><b>People:</b></label>
-                        <input class="form-control" type="number" min="0" max="10" id="people" /> / <input class="form-control" type="number" min="0" max="10" />
+                        <label htmlFor="people" className="form-label"><b>People:</b></label>
+                        <input className="form-control" type="number" min="0" max="10" defaultValue={table[0].peopleAmount} id="people" /> / <input className="form-control" type="number" min="0" max="10" defaultValue={table[0].maxPeopleAmount} />
                     </div>
                     <div>
-                        <label for="bill"><b>Bill:</b></label>
-                        $ <input class="form-control" type="number" min="0" id="bill" />
+                        <label htmlFor="bill"><b>Bill:</b></label>
+                        $ <input className="form-control" type="number" min="0" defaultValue={table[0].bill} id="bill" />
                     </div>
-                    <button class="btn btn-primary">Update</button>
+                    <button className="btn btn-primary">Update</button>
                 </form>
             </main>
         </div>
