@@ -1,0 +1,23 @@
+h1 {
+    margin-bottom: 30px !important;
+}
+
+form {
+    width: 350px;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+label {
+    margin-right: 20px;
+}
+
+input {
+    width: 70px !important;
+    margin: 0 10px !important;
+}
